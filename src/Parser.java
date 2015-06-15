@@ -19,8 +19,9 @@ public class Parser {
         int i = 3;
         if (tokens[2] != "imported")
             name = name + tokens[2];
-        while (tokens[i] != "at") {
+        while (!tokens[i].equals("at")) {
             name = name + " " + tokens[i];
+            i++;
         }
         return name;
 
@@ -28,7 +29,9 @@ public class Parser {
 
     private double goodsPrice(String tokens[]) {
         int i = 0;
-        while (tokens[i] != "in") ;
+
+        while (!tokens[i].equals("at"))
+            i++;
         return Double.parseDouble(tokens[i + 1]);
     }
 
@@ -37,7 +40,7 @@ public class Parser {
     }
 
     private boolean isImported(String tokens[]) {
-        if (tokens[1] == "imported") {
+        if (tokens[1].equals("imported")) {
             return true;
         }
         return false;

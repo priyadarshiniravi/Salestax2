@@ -1,7 +1,7 @@
 
 public class Goods {
-    private boolean imported;
-    private String name;
+    public boolean imported;
+    public String name;
     private double price;
 
     Goods(boolean imported, String name, double price) {

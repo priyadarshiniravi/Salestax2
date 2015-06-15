@@ -1,6 +1,8 @@
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class ParserTest {
     @Test
     public void shouldParseInputAndReturnGoods() {
@@ -9,7 +11,7 @@ public class ParserTest {
         Goods expectedGoods = new Goods(true, "bottle of perfume", 27.99);
         Goods actualGoods = parser.parse();
 
-        //assertEquals(expectedGoods, actualGoods);
+        assertEquals(expectedGoods, actualGoods);
 
 
     }
