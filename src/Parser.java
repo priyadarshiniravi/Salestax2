@@ -18,14 +18,14 @@ public class Parser {
 
     private String goodsName(String[] tokens) {
         String name = "";
-        int i = 3;
-        if (tokens[2] != "imported")
-            name = name + tokens[2];
+        int i = 2;
+        if (!tokens[1].equals("imported"))
+            name = name + tokens[1].trim();
         while (!tokens[i].equals("at")) {
-            name = name + " " + tokens[i];
+            name = name + tokens[i]+" ";
             i++;
         }
-        return name;
+        return name.trim();
 
     }
 

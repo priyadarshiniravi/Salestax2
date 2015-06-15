@@ -13,15 +13,19 @@ public class App {
     }
 
     public void start() {
-        String input = consoleInputOutput.getInputAsString();
+        String input;
         int option = 1;
         while (option == 1) {
-            parser.get("1 imported bottle of perfume at 27.99");
+            input = consoleInputOutput.getInputAsString();
+            parser.get(input);
             Goods goods = parser.parse();
             goodsArrayList.add(goods);
-            consoleInputOutput.print("Do you want to Continue");
+            consoleInputOutput.print("Press 1 to Continue");
             option = Integer.parseInt(consoleInputOutput.getInputAsString());
+
         }
+        GoodsList goodsList=new GoodsList(goodsArrayList,consoleInputOutput);
+        goodsList.ComputeTotalPrice();
 
     }
 }

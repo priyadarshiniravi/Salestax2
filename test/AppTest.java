@@ -16,11 +16,12 @@ public class AppTest {
 
         app.start();
 
-        verify(consoleInputOutput, times(2)).getInputAsString();
+        verify(consoleInputOutput, times(3)).getInputAsString();
 
 
     }
 
+    @Test
     public void ParserIsCalled() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
         when(consoleInputOutput.getInputAsString())
@@ -31,7 +32,7 @@ public class AppTest {
 
         app.start();
 
-        verify(parser, times(2)).parse();
+        verify(parser, times(1)).parse();
 
     }
 
