@@ -34,14 +34,14 @@ public class ConsoleInputOutputTest {
 
     }
 
-//    @Test
-//    public void ShouldDisplayOutputToUser() {
-//        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
-//
-//        consoleInputOutput.print("Hai!");
-//
-//        assertEquals("Hai!"+ "\n", outContent.toString());
-//
-//
-//    }
+    @Test
+    public void ShouldDisplayOutputToUser() {
+        ConsoleInputOutput consoleInputOutput = new ConsoleInputOutput(new Scanner(System.in));
+
+        consoleInputOutput.print("Hai!");
+
+        assertEquals("Hai!"+ "\n", outContent.toString());
+
+
+    }
 }
