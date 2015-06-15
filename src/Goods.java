@@ -10,6 +10,19 @@ public class Goods {
         this.price = price;
     }
 
+    public double computeSalesTaxAddedToPrice() {
+        GoodsSalesTax salesTax = new GoodsSalesTax();
+        return price + price * salesTax.SalesTaxForExcumption(name);
+
+    }
+
+    public double computeImportExportDuty() {
+        if (imported) {
+            return 0.05 * price;
+        }
+        return 0.0d * price;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
