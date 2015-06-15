@@ -1,22 +1,37 @@
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class AppTest {
     @Test
     public void ShouldGetInputFromTheUser() {
         ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
-        App app = new App(consoleInputOutput);
+        when(consoleInputOutput.getInputAsString())
+                .thenReturn("1 imported bottle of perfume at 27.99", "0");
+        ArrayList<Goods> goodsArrayList = new ArrayList<>();
+        Parser parser=mock(Parser.class);
+        App app = new App(consoleInputOutput, goodsArrayList,parser);
 
         app.start();
 
-        verify(consoleInputOutput).getInputAsString();
+        verify(consoleInputOutput, times(2)).getInputAsString();
 
+
+    }
+
+    public void ParserIsCalled() {
+        ConsoleInputOutput consoleInputOutput = mock(ConsoleInputOutput.class);
+        when(consoleInputOutput.getInputAsString())
+                .thenReturn("1 imported bottle of perfume at 27.99", "0");
+        ArrayList<Goods> goodsArrayList = new ArrayList<>();
+        Parser parser=mock(Parser.class);
+        App app = new App(consoleInputOutput, goodsArrayList,parser);
+
+        app.start();
+
+        verify(parser, times(2)).parse();
 
     }
 
