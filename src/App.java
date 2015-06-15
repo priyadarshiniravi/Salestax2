@@ -15,6 +15,7 @@ public class App {
     public void start() {
         String input;
         int option = 1;
+        consoleInputOutput.print("enter one input press 1 to continue then next");
         while (option == 1) {
             input = consoleInputOutput.getInputAsString();
             parser.get(input);
